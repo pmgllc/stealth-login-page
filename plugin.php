@@ -94,24 +94,21 @@ function slp_admin() {
 			</label>
 			<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="60" />
 		</div>
-		<p>The first part of the new URL string to reach your login<br />
-			form is the "question." It is just an arbitrary word<br />
-			or code. Complexity will not matter much at this time.</p>
+		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 		<div class="clear">
 			<label for="question">
 				String used for the "question" (limit: 30 characters):
 			</label>
 			<input type="text" name="question" value="' . htmlentities($slp_settings['question']) . '" size="30" />
 		</div>
-		<p>The second part of the new URL string to reach your login<br />
-			form is the "answer." It is also just an arbitrary word<br />
-			or code.</p>
+		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 		<div class="clear">
 			<label for="answer">
 				String used for the "answer" (limit: 30 characters):
 			</label>
 			<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
 		</div>
+		<input name="update_options" value="Save Settings &raquo;" type="submit" />
 		</div>
 	</form>
 	<style type="text/css">
@@ -126,6 +123,11 @@ function slp_admin() {
 		font-size: 1.1em;
 		margin-bottom: 1em;
 		line-spacing: 1.4em;
+	}
+	.slp-page input[type="submit"],
+	.slp-page input[type="button"] {
+		margin-top: 1em;
+		padding: 3px 8px;
 	}
 	</style>
 	</div>';
