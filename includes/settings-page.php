@@ -26,7 +26,7 @@ function slp_admin() {
 		<div class="slp-page">
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
 		<div class="clear">
-			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to:'); ?></label>
+			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to:', 'slp_domain'); ?></label>
 			<input id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" type="text" value="<?php echo $slp_settings['redirect_url']; ?>" size="60" />
 		</div>
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
@@ -43,7 +43,8 @@ function slp_admin() {
 			</label>
 			<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
 		</div>
-		<input name="update_options" value="Save Settings &raquo;" type="submit" />
+		<p class="submit">
+			<input type="submit" class="button-primary" value="<?php e_('Save Settings', 'slp_domain'); ?>" />
 		</div>
 	</form>
 	<style type="text/css">
