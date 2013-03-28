@@ -1,18 +1,33 @@
 <?php
 
+add_action('admin_menu', 'slp_plugin_menu');
+function slp_plugin_menu() {
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'stealth-login-page', 'slp_admin');
+	    return;
+}
+
+function slp_register_settings() {
+	register_setting('slp_settings_group', 'slp_settings');
+}
+add_action('admin_init', 'slp_register_settings');
+
 function slp_admin() {
+
+	global $slp_settings;
+
 	ob_start(); ?>
 	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
 	<form method="post" action="options-general.php?page=stealth-login-page">
+		
+		<?php settings_fields('slp_settings_group'); ?>
+
 	<input type="hidden" name="redirect" value="true" />
 		<div class="slp-page">
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
 		<div class="clear">
-			<label for="redirect_url">
-			URL to redirect unauthorized attempts to:
-			</label>
-			<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="60" />
+			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to:'); ?></label>
+			<input id="slp_settings[redirect_url]" type="text" name="slp_settings[redirect_url]" size="60" />
 		</div>
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 		<div class="clear">
@@ -53,14 +68,3 @@ function slp_admin() {
 	<?php
 	echo ob_get_clean();
 }
-
-add_action('admin_menu', 'slp_plugin_menu');
-function slp_plugin_menu() {
-	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'stealth-login-page', 'slp_admin');
-	    return;
-}
-
-function slp_register_settings() {
-	register_setting('slp_settings_group', 'slp_settings');
-}
-add_action('admin_init', 'slp_register_settings');
