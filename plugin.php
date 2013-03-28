@@ -78,31 +78,56 @@ function slp_plugin_menu() {
 	$slp_settings = get_option('slp_settings');
 
 function slp_admin() {
-	// Check that the user is allowed to update options  
-    if (!current_user_can('manage_options')) {  
-        wp_die('You do not have sufficient permissions to access this page.'); 
+	// Check that the user is allowed to update options
+    if (!current_user_can('manage_options')) {
+        wp_die('You do not have sufficient permissions to access this page.');
     }
-
-?>
-	<div class="wrap">
+	echo '<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
 	<form method="post" action="options.php">
 	<input type="hidden" name="redirect" value="true" />
-		<table class="form-table">  
-            <tr valign="top">  
-                <th scope="row">  
-                    <label for="redirect_url">  
-                    	URL to redirect unauthorized attempts to:  
-                    </label>  
-                </th>
-                <td>
-     <?php      echo '     	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="45" />'; ?>  
-                </td>  
-            </tr>                  
-        </table>  
+		<table class="form-table">
+			<tr valign="top">
+				<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
+				<th scope="row">
+					<label for="redirect_url">
+						URL to redirect unauthorized attempts to:
+					</label>
+				</th>
+				<td>
+	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="60" />
+				</td>
+			</tr>
+			<tr valign="top">
+				<p>The first part of the new URL string to reach your login<br />
+				form is the "question." It is just an arbitrary word<br />
+				or code. Complexity will not matter much at this time.</p>
+				<th scope="row">
+					<label for="question">
+						String used for the "question" (limit: 30 characters):
+					</label>
+				</th>
+				<td>
+	<input type="text" name="question" value="' . htmlentities($slp_settings['question']) . '" size="30" />
+				</td>
+			</tr>
+			<tr valign="top">
+				<p>The second part of the new URL string to reach your login<br />
+				form is the "answer." It is also just an arbitrary word<br />
+				or code.</p>
+				<th scope="row">
+					<label for="answer">
+						String used for the "answer" (limit: 30 characters):
+					</label>
+				</th>
+				<td>
+	<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
+				</td>
+			</tr>
+		</table>
 	</form>
-	</div>
-<?php }
+	</div>';
+}
 
 /*
 * Check the URL of the WordPress login page for a specific query string.
