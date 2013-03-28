@@ -96,7 +96,7 @@ function slp_admin() {
                     </label>  
                 </th>
                 <td>
-                	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="45" />  
+     <?php      echo '     	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="45" />'; ?>  
                 </td>  
             </tr>                  
         </table>  
