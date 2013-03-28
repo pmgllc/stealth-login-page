@@ -49,12 +49,27 @@ function slp_init() {
 }
 
 function slp_plugin_menu() {
+	global $wp_version;
+
+	// Modern WP?
+	if (version_compare($wp_version, '3.0', '>=')) {
 	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'slp', 'slp_admin');
+	    return;
 	}
+
+	// Older WPMU?
+	if (function_exists("get_current_site")) {
+	    add_submenu_page('wpmu-admin.php', 'Stealth Login Page', 'Stealth Login Page', 9, 'slp', 'slp_admin');
+	    return;
+	}
+
+	// Older WP
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 9, 'slp', 'slp_admin');
+}
 
 function slp_admin() { ?>
 	<div class="wrap">
-	<?php screen_icon(); ?>
+<!--	<?php screen_icon(); ?> -->
 	<h2>Your Plugin Page Title</h2>
 
 	<form method="post" action="options.php"> 
