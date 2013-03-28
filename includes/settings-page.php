@@ -27,7 +27,7 @@ function slp_admin() {
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
 		<div class="clear">
 			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to:'); ?></label>
-			<input id="slp_settings[redirect_url]" type="text" name="slp_settings[redirect_url]" size="60" />
+			<input id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" type="text" value="<?php echo $slp_settings['redirect_url']; ?>" size="60" />
 		</div>
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 		<div class="clear">
