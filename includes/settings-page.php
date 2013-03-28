@@ -31,20 +31,17 @@ function slp_admin() {
 		</div>
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 		<div class="clear">
-			<label for="question">
-				String used for the "question" (limit: 30 characters):
-			</label>
-			<input type="text" name="<?php echo SLP_SETTINGS_FIELD; ?>question" value="<?php echo esc_attr( get_option('question', SLP_SETTINGS_FIELD) ); ?>" size="30" />
+			<label class="description" for="<?php echo $slp_settings['question']; ?>"><?php _e('String used for the "question"', 'slp_domain'); ?></label>
+			<input type="text" name="<?php echo $slp_settings['question']; ?>" value="<?php echo $slp_settings['question']; ?>" size="60" />
 		</div>
 		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 		<div class="clear">
-			<label for="answer">
-				String used for the "answer" (limit: 30 characters):
-			</label>
-			<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
+			<label class="description" for="<?php echo $slp_settings['answer']; ?>"><?php _e('String used for the "answer"', 'slp_domain'); ?></label>
+			<input type="text" name="<?php echo $slp_settings['answer']; ?>" value="<?php echo $slp_settings['answer']; ?>" size="60" />
 		</div>
 		<p class="submit">
-			<input type="submit" class="button-primary" value="<?php e_('Save Settings', 'slp_domain'); ?>" />
+			<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'slp_domain'); ?>" />
+		</p>
 		</div>
 	</form>
 	<style type="text/css">
