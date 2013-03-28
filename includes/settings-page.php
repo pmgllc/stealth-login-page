@@ -1,10 +1,6 @@
 <?php
 
-function slp_admin_page() {
-	// Check that the user is allowed to update options
-    if (!current_user_can('manage_options')) {
-        wp_die('You do not have sufficient permissions to access this page.');
-    }
+function slp_admin() {
 	ob_start(); ?>
 	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
@@ -54,4 +50,12 @@ function slp_admin_page() {
 	}
 	</style>
 	</div>
-<?php }
+	<?php
+	echo ob_get_clean();
+}
+
+add_action('admin_menu', 'slp_plugin_menu');
+function slp_plugin_menu() {
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'stealth-login-page', 'slp_admin');
+	    return;
+}
