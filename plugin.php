@@ -52,6 +52,12 @@ function slp_init() {
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page
 
+
+// Global Variables ---------------------- //
+$slp_prefix = 'slp_';
+$slp_options  = get_options('slp_settings');
+
+
     $slp_settings = array(
 	'redirect_url'		=> '',
 	'question'			=> '',

@@ -59,3 +59,8 @@ function slp_plugin_menu() {
 	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'stealth-login-page', 'slp_admin');
 	    return;
 }
+
+function slp_register_settings() {
+	register_setting('slp_settings_group', 'slp_settings');
+}
+add_action('admin_init', 'slp_register_settings');
