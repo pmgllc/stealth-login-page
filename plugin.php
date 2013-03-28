@@ -10,7 +10,7 @@
 /*
   Copyright 2013 Jesse Petersen
 
-  Thanks to Andrew Norcross (@norcross) for the redirect code and Billy Fairbank (@billyfairbank) for the idea to turn it into a plugin.
+  Thanks to Andrew Norcross (@norcross) for the redirect code (https://gist.github.com/norcross/4342231) and Billy Fairbank (@billyfairbank) for the idea to turn it into a plugin.
 
   Licenced under the GNU GPL:
 
@@ -69,7 +69,7 @@ function slp_plugin_menu() {
 	add_options_page('Stealth Login Page', 'Stealth Login Page', 9, 'stealth-login-page', 'slp_admin');
 }
 
-    $data = array(
+    $slp_settings = array(
 	'redirect_url'		=> '',
 	'question'			=> '',
 	'answer'			=> '',
@@ -86,7 +86,7 @@ function slp_option($data) {
 	}
 }
 
-//	$slp_settings = get_option('slp_settings');
+	$slp_options = get_option('slp_settings');
 
 function slp_admin() {
 	// Check that the user is allowed to update options
@@ -111,7 +111,7 @@ function slp_admin() {
 			<label for="question">
 				String used for the "question" (limit: 30 characters):
 			</label>
-			<input type="text" name="question" value="<?php echo esc_attr( get_option('question', SLP_SETTINGS_FIELD) ); ?>" size="30" />
+			<input type="text" name="<?php echo SLP_SETTINGS_FIELD; ?>question" value="<?php echo esc_attr( get_option('question', SLP_SETTINGS_FIELD) ); ?>" size="30" />
 		</div>
 		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 		<div class="clear">
