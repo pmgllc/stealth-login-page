@@ -49,14 +49,18 @@ function slp_init() {
 }
 
 function slp_plugin_menu() {
-	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'slp-plugin.php', 'slp_admin');
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'slp', 'slp_admin');
 	}
 
-function slp_admin() {
-	if ( is_admin () ) {
-		require_once(SLP_PLUGIN_DIR . '/admin.php');
-	}
-}
+function slp_admin() { ?>
+	<div class="wrap">
+	<?php screen_icon(); ?>
+	<h2>Your Plugin Page Title</h2>
+
+	<form method="post" action="options.php"> 
+
+	</div>
+<?php }
 
 /*
 * Check the URL of the WordPress login page for a specific query string.
