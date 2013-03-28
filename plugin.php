@@ -75,16 +75,28 @@ function slp_plugin_menu() {
 	'answer'			=> '',
 	);
 
-	$slp_settings = get_option('slp_settings');
+/* Get current option value */
+function slp_option($data) {
+	global $slp_options;
+
+	if (isset($slp_options[$option_name])) {
+		return $slp_options[$option_name];
+	} else {
+		return null;
+	}
+}
+
+//	$slp_settings = get_option('slp_settings');
 
 function slp_admin() {
 	// Check that the user is allowed to update options
     if (!current_user_can('manage_options')) {
         wp_die('You do not have sufficient permissions to access this page.');
     }
-	echo '<div class="wrap">
+	?>
+	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
-	<form method="post" action="options.php">
+	<form method="post" action="options-general.php?page=stealth-login-page">
 	<input type="hidden" name="redirect" value="true" />
 		<div class="slp-page">
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
@@ -99,7 +111,7 @@ function slp_admin() {
 			<label for="question">
 				String used for the "question" (limit: 30 characters):
 			</label>
-			<input type="text" name="question" value="' . htmlentities($slp_settings['question']) . '" size="30" />
+			<input type="text" name="question" value="<?php echo esc_attr( get_option('question', SLP_SETTINGS_FIELD) ); ?>" size="30" />
 		</div>
 		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 		<div class="clear">
@@ -127,11 +139,10 @@ function slp_admin() {
 	.slp-page input[type="submit"],
 	.slp-page input[type="button"] {
 		margin-top: 1em;
-		padding: 3px 8px;
 	}
 	</style>
-	</div>';
-}
+	</div>
+<?php }
 
 /*
 * Check the URL of the WordPress login page for a specific query string.
