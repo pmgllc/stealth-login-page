@@ -48,6 +48,7 @@ function slp_init() {
 
 }
 
+add_action('admin_menu', 'slp_plugin_menu');
 function slp_plugin_menu() {
 	global $wp_version;
 
@@ -70,10 +71,10 @@ function slp_plugin_menu() {
 function slp_admin() { ?>
 	<div class="wrap">
 <!--	<?php screen_icon(); ?> -->
-	<h2>Your Plugin Page Title</h2>
-
+	<h2>Stealth Login Page Options</h2>
 	<form method="post" action="options.php"> 
 
+	</form>
 	</div>
 <?php }
 
