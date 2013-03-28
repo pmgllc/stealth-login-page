@@ -71,7 +71,7 @@ function slp_plugin_menu() {
 
     $data = array(
 	'redirect_url'		=> '',
-	'question'			=> ''
+	'question'			=> '',
 	'answer'			=> '',
 	);
 
