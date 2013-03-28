@@ -6,10 +6,10 @@ function slp_plugin_menu() {
 	    return;
 }
 
+add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
 }
-add_action('admin_init', 'slp_register_settings');
 
 function slp_admin() {
 
@@ -22,22 +22,21 @@ function slp_admin() {
 		
 		<?php settings_fields('slp_settings_group'); ?>
 
-	<input type="hidden" name="redirect" value="true" />
 		<div class="slp-page">
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
 		<div class="clear">
 			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to:', 'slp_domain'); ?></label>
-			<input id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" type="text" value="<?php echo $slp_settings['redirect_url']; ?>" size="60" />
+			<input id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" type="text" value="<?php echo $slp_settings['redirect_url']; ?>" />
 		</div>
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 		<div class="clear">
 			<label class="description" for="<?php echo $slp_settings['question']; ?>"><?php _e('String used for the "question"', 'slp_domain'); ?></label>
-			<input type="text" name="<?php echo $slp_settings['question']; ?>" value="<?php echo $slp_settings['question']; ?>" size="60" />
+			<input type="text" name="<?php echo $slp_settings['question']; ?>" value="<?php echo $slp_settings['question']; ?>" />
 		</div>
 		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 		<div class="clear">
 			<label class="description" for="<?php echo $slp_settings['answer']; ?>"><?php _e('String used for the "answer"', 'slp_domain'); ?></label>
-			<input type="text" name="<?php echo $slp_settings['answer']; ?>" value="<?php echo $slp_settings['answer']; ?>" size="60" />
+			<input type="text" name="<?php echo $slp_settings['answer']; ?>" value="<?php echo $slp_settings['answer']; ?>"  />
 		</div>
 		<p class="submit">
 			<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'slp_domain'); ?>" />

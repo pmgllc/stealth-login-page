@@ -57,28 +57,6 @@ include('includes/settings-page.php'); // loads the admin settings page
 $slp_prefix = 'slp_';
 $slp_options  = get_option('slp_settings');
 
-
-    $slp_settings = array(
-	'redirect_url'		=> '',
-	'question'			=> '',
-	'answer'			=> '',
-	);
-
-/* Get current option value */
-function slp_option($data) {
-	global $slp_options;
-
-	if (isset($slp_options[$option_name])) {
-		return $slp_options[$option_name];
-	} else {
-		return null;
-	}
-}
-
-	$slp_options = get_option('slp_settings');
-
-
-
 /*
 * Check the URL of the WordPress login page for a specific query string.
 *
