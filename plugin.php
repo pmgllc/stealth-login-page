@@ -69,16 +69,37 @@ function slp_plugin_menu() {
 	add_options_page('Stealth Login Page', 'Stealth Login Page', 9, 'stealth-login-page', 'slp_admin');
 }
 
+    $data = array(
+	'redirect_url'		=> '',
+	'question'			=> ''
+	'answer'			=> '',
+	);
+
+	$slp_settings = get_option('slp_settings');
+
 function slp_admin() {
 	// Check that the user is allowed to update options  
     if (!current_user_can('manage_options')) {  
         wp_die('You do not have sufficient permissions to access this page.'); 
-    }  
+    }
+
 ?>
 	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
-	<form method="post" action="options.php"> 
-
+	<form method="post" action="options.php">
+	<input type="hidden" name="redirect" value="true" />
+		<table class="form-table">  
+            <tr valign="top">  
+                <th scope="row">  
+                    <label for="redirect_url">  
+                    	URL to redirect unauthorized attempts to:  
+                    </label>  
+                </th>
+                <td>
+                	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="45" />  
+                </td>  
+            </tr>                  
+        </table>  
 	</form>
 	</div>
 <?php }
@@ -93,7 +114,7 @@ add_action( 'login_init', 'slp_login_stringcheck' );
 function slp_login_stringcheck() {
  
 	// set the location a failed attempt goes to
-	$redirect = 'http://youtu.be/dQw4w9WgXcQ?t=2m6s';
+	$redirect = $slp_settings('redirect_url');
  
 	// missing query string all together
 	if (!isset ($_GET['question']) )
