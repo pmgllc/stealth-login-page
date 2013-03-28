@@ -18,7 +18,7 @@ function slp_admin() {
 	ob_start(); ?>
 	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
-	<form method="post" action="options-general.php?page=stealth-login-page">
+	<form method="post" action="options.php">
 		
 		<?php settings_fields('slp_settings_group'); ?>
 
