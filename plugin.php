@@ -1,5 +1,4 @@
 <?php
-
 /*
   Plugin Name: Stealth Login Page
   Plugin URI: http://www.petersenmediagroup.com/plugins/stealth-login-page
@@ -10,6 +9,8 @@
  */
 /*
   Copyright 2013 Jesse Petersen
+
+  Thanks to Andrew Norcross (@norcross) for the redirect code and Billy Fairbank (@billyfairbank) for the idea to turn it into a plugin.
 
   Licenced under the GNU GPL:
 
@@ -54,18 +55,18 @@ function slp_plugin_menu() {
 
 	// Modern WP?
 	if (version_compare($wp_version, '3.0', '>=')) {
-	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'slp', 'slp_admin');
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 'manage_options', 'stealth-login-page', 'slp_admin');
 	    return;
 	}
 
 	// Older WPMU?
 	if (function_exists("get_current_site")) {
-	    add_submenu_page('wpmu-admin.php', 'Stealth Login Page', 'Stealth Login Page', 9, 'slp', 'slp_admin');
+	    add_submenu_page('wpmu-admin.php', 'Stealth Login Page', 'Stealth Login Page', 9, 'stealth-login-page', 'slp_admin');
 	    return;
 	}
 
 	// Older WP
-	add_options_page('Stealth Login Page', 'Stealth Login Page', 9, 'slp', 'slp_admin');
+	add_options_page('Stealth Login Page', 'Stealth Login Page', 9, 'stealth-login-page', 'slp_admin');
 }
 
 function slp_admin() { ?>
