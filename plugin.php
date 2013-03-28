@@ -86,46 +86,48 @@ function slp_admin() {
 	<h2>Stealth Login Page Options</h2>
 	<form method="post" action="options.php">
 	<input type="hidden" name="redirect" value="true" />
-		<table class="form-table">
-			<tr valign="top">
-				<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
-				<th scope="row">
-					<label for="redirect_url">
-						URL to redirect unauthorized attempts to:
-					</label>
-				</th>
-				<td>
-	<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="60" />
-				</td>
-			</tr>
-			<tr valign="top">
-				<p>The first part of the new URL string to reach your login<br />
-				form is the "question." It is just an arbitrary word<br />
-				or code. Complexity will not matter much at this time.</p>
-				<th scope="row">
-					<label for="question">
-						String used for the "question" (limit: 30 characters):
-					</label>
-				</th>
-				<td>
-	<input type="text" name="question" value="' . htmlentities($slp_settings['question']) . '" size="30" />
-				</td>
-			</tr>
-			<tr valign="top">
-				<p>The second part of the new URL string to reach your login<br />
-				form is the "answer." It is also just an arbitrary word<br />
-				or code.</p>
-				<th scope="row">
-					<label for="answer">
-						String used for the "answer" (limit: 30 characters):
-					</label>
-				</th>
-				<td>
-	<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
-				</td>
-			</tr>
-		</table>
+		<div class="slp-page">
+		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
+		<div class="clear">
+			<label for="redirect_url">
+			URL to redirect unauthorized attempts to:
+			</label>
+			<input type="text" name="redirect_url" value="' . htmlentities($slp_settings['redirect_url']) . '" size="60" />
+		</div>
+		<p>The first part of the new URL string to reach your login<br />
+			form is the "question." It is just an arbitrary word<br />
+			or code. Complexity will not matter much at this time.</p>
+		<div class="clear">
+			<label for="question">
+				String used for the "question" (limit: 30 characters):
+			</label>
+			<input type="text" name="question" value="' . htmlentities($slp_settings['question']) . '" size="30" />
+		</div>
+		<p>The second part of the new URL string to reach your login<br />
+			form is the "answer." It is also just an arbitrary word<br />
+			or code.</p>
+		<div class="clear">
+			<label for="answer">
+				String used for the "answer" (limit: 30 characters):
+			</label>
+			<input type="text" name="answer" value="' . htmlentities($slp_settings['answer']) . '" size="30" />
+		</div>
+		</div>
 	</form>
+	<style type="text/css">
+	div.slp-page {
+		max-width: 600px;
+		min-width: 50%;
+	}
+	.slp-page div.clear {
+		clear: both;
+	}
+	.slp-page p {
+		font-size: 1.1em;
+		margin-bottom: 1em;
+		line-spacing: 1.4em;
+	}
+	</style>
 	</div>';
 }
 
