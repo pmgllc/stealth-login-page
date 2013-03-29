@@ -13,7 +13,7 @@ function slp_register_settings() {
 
 function slp_admin() {
 
-	global $slp_settings;
+	global $slp_options;
 
 	ob_start(); ?>
 	<div class="wrap">
@@ -23,8 +23,8 @@ function slp_admin() {
 		<?php settings_fields('slp_settings_group'); ?>
 
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
-			<label class="description" for="<?php echo $slp_settings[redirect_url]; ?><?php _e('URL to redirect unauthorized attempts to', 'slp_domain'); ?>" ></label>
-			<input id="<?php echo $slp_settings[redirect_url]>" name="<?php echo $slp_settings[redirect_url]; ?>" type="text" value="<?php echo $slp_settings[redirect_url]; ?>" />
+			<label class="description" for="<?php echo $slp_settings[redirect_url]; ?>"><?php _e('URL to redirect unauthorized attempts to', 'slp_domain'); ?>" ></label>
+			<input id="<?php echo $slp_settings[redirect_url]; ?>" name="<?php echo $slp_settings[redirect_url]; ?>" type="text" value="<?php echo $slp_settings[redirect_url]; ?>" />
 
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 			<label class="description" for="<?php echo $slp_settings[question]; ?>"><?php _e('String used for the "question"', 'slp_domain'); ?></label>

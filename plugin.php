@@ -55,7 +55,7 @@ include('includes/settings-page.php'); // loads the admin settings page
 
 // Global Variables ---------------------- //
 $slp_prefix = 'slp_';
-$slp_options  = get_option('slp_settings');
+$slp_options  = get_option('slp_settings'); // retrieve plugin settings from options
 
 /*
 * Check the URL of the WordPress login page for a specific query string.
