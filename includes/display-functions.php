@@ -18,11 +18,10 @@ function slp_login_stringcheck() {
 	$answer = $slp_options['answer'];
  
 	// missing query string all together
-	if (!isset ($_GET['$question']) )
+	if (!isset ($_GET[$question]) )
 		wp_redirect( esc_url_raw ($redirect), 302 );
- 
+	
 	// incorrect value for query string
-	if ($_GET['$question'] !== '$answer' )
+	if ($_GET[$question] !== $answer )
 		wp_redirect( esc_url_raw ($redirect), 302 );
- 
 }
