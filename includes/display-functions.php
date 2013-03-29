@@ -11,16 +11,18 @@ add_action( 'login_init', 'slp_login_stringcheck' );
 function slp_login_stringcheck() {
 
  	global $slp_options;
- 	
+
 	// set the location a failed attempt goes to
-	$redirect = get_option('slp_settings[redirect_url]');
+	$redirect = $slp_options['redirect_url'];
+	$question = $slp_options['question'];
+	$answer = $slp_options['answer'];
  
 	// missing query string all together
-	if (!isset ($slp_options['question']) )
+	if (!isset ($_GET['$question']) )
 		wp_redirect( esc_url_raw ($redirect), 302 );
  
 	// incorrect value for query string
-	if ($slp_options['question'] !== $slp_options['answer'] )
+	if ($_GET['$question']) !== $answer )
 		wp_redirect( esc_url_raw ($redirect), 302 );
  
 }
