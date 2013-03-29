@@ -11,7 +11,7 @@ add_action( 'login_init', 'slp_login_stringcheck' );
 function slp_login_stringcheck() {
  
 	// set the location a failed attempt goes to
-	$redirect = $slp_settings('redirect_url');
+	$redirect = get_option('slp_settings[redirect_url]');
  
 	// missing query string all together
 	if (!isset ($_GET['question']) )
