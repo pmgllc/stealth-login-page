@@ -34,20 +34,18 @@ if ( !defined( 'ABSPATH' ) ) {
 		wp_die( __( "Sorry, you are not allowed to access this page directly.", 'slp' ) );
 }
 
-define( 'SLP_PLUGIN_DIR', dirname( __FILE__ ) );
-define( 'SLP_SETTINGS_FIELD', 'slp-settings' );
+//define( 'SLP_PLUGIN_DIR', dirname( __FILE__ ) );
+//define( 'SLP_SETTINGS_FIELD', 'slp-settings' );
 
-register_activation_hook( __FILE__, 'slp_activation_check' );
+//register_activation_hook( __FILE__, 'slp_activation_check' );
 
-add_action( 'init', 'slp_init', 15 );
+//add_action( 'init', 'slp_init', 15 );
 
 /** Loads required files when needed */
-function slp_init() {
-
+//function slp_init() {
 	/** Load textdomain for translation */
-	load_plugin_textdomain( 'slp', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-
-}
+//	load_plugin_textdomain( 'slp', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+//}
 
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page
@@ -55,7 +53,9 @@ include('includes/settings-page.php'); // loads the admin settings page
 
 // Global Variables ---------------------- //
 $slp_prefix = 'slp_';
-$slp_options  = get_option('slp_settings'); // retrieve plugin settings from options
+$slp_plugin_name = 'Stealth Login Page';
+// retrieve plugin settings from options table
+$slp_options  = get_option('slp_settings');
 
 /*
 * Check the URL of the WordPress login page for a specific query string.
