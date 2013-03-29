@@ -26,19 +26,19 @@ function slp_admin() {
 
 			<label class="description" for="slp_settings[redirect_url]"><?php _e('URL to redirect unauthorized attempts to', 'slp_domain'); ?></label>
 
-			<input type="text" id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" value="<?php echo $slp_settings[redirect_url]; ?>" />
+			<input type="text" id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" value="<?php echo $slp_options[redirect_url]; ?>" />
 
 		<p>The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.</p>
 
 			<label class="description" for="slp_settings[question]"><?php _e('String used for the "question"', 'slp_domain'); ?></label>
 
-			<input type="text" id="slp_settings[question]" name="slp_settings[question]" value="<?php echo $slp_settings[question]; ?>" />
+			<input type="text" id="slp_settings[question]" name="slp_settings[question]" value="<?php echo $slp_options[question]; ?>" />
 
 		<p>The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.</p>
 
 			<label class="description" for="slp_settings[answer]"><?php _e('String used for the "answer"', 'slp_domain'); ?></label>
 
-			<input type="text" id="slp_settings[answer]" name="slp_settings[answer]" value="<?php echo $slp_settings[answer]; ?>"  />
+			<input type="text" id="slp_settings[answer]" name="slp_settings[answer]" value="<?php echo $slp_options[answer]; ?>"  />
 		
 		<p class="submit">
 			<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'slp_domain'); ?>" />
