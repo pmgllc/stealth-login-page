@@ -2,7 +2,7 @@
 /*
   Plugin Name: Stealth Login Page
   Plugin URI: http://www.petersenmediagroup.com/plugins/stealth-login-page
-  Version: 0.1.0
+  Version: 1.0.0
   Author: Jesse Petersen
   Author URI: http://www.petersenmediagroup.com
   Description: Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess

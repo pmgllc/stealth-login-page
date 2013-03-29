@@ -9,7 +9,9 @@
 
 add_action( 'login_init', 'slp_login_stringcheck' );
 function slp_login_stringcheck() {
- 
+
+ 	global $slp_options;
+ 	
 	// set the location a failed attempt goes to
 	$redirect = get_option('slp_settings[redirect_url]');
  
