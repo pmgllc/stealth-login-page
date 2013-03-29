@@ -22,7 +22,7 @@ function slp_login_stringcheck() {
 		wp_redirect( esc_url_raw ($redirect), 302 );
  
 	// incorrect value for query string
-	if ($_GET['$question']) !== $answer )
+	if ($_GET['$question'] !== '$answer' )
 		wp_redirect( esc_url_raw ($redirect), 302 );
  
 }
