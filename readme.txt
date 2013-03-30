@@ -12,7 +12,7 @@ Protect your /wp-admin and wp-login.php pages from being accessed without editin
 
 == Description ==
 
-Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess files. Without locking down access via IP address or file permissions, this plugin creates a secret, customizable, login URL string. Those attempting to gain access to your login form will be automatcally redirected to a customizble URL.
+Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess files. Without locking down access via IP address or file permissions, this plugin creates a secret, customizable, login URL string. Those attempting to gain access to your login form will be automatcally redirected to a customizable URL.
 
 == Installation ==
 
