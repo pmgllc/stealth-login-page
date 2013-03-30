@@ -19,13 +19,13 @@ function slp_admin() {
 	<div class="wrap">
 	<h2>Stealth Login Page Options</h2>
 	<form method="post" action="options.php">
-		
+
 		<?php settings_fields('slp_settings_group'); ?>
 
 		<h4>Enable/Disable Stealth Login Page</h4>
-		
+
 		<input id="slp_settings[enable]" type="checkbox" name="slp_settings[enable]" value="1" <?php checked(1, $slp_options['enable']); ?> />
-		
+
 		<label class="description" for="slp_settings[enable]"><?php _e('Enable Stealth Mode', 'slp_domain'); ?></label>
 
 		<p>Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.</p>
@@ -45,7 +45,7 @@ function slp_admin() {
 			<label class="description" for="slp_settings[answer]"><?php _e('String used for the "answer"', 'slp_domain'); ?></label>
 
 			<input type="text" id="slp_settings[answer]" name="slp_settings[answer]" value="<?php echo $slp_options[answer]; ?>"  />
-		
+
 		<p class="submit">
 			<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'slp_domain'); ?>" />
 		</p>
