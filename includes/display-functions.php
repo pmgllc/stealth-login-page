@@ -17,8 +17,8 @@ function slp_login_stringcheck() {
 	$question = $slp_options['question'];
 	$answer = $slp_options['answer'];
 
-	if ( ! isset( $_GET[$question] ) )
-		wp_redirect( esc_url_raw ($redirect), 302 );
+if ( ! isset( $_GET[$question] ) )
+	wp_redirect( esc_url_raw ($redirect), 302 );
 
 
 	// check for correct answer
