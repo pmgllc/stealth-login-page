@@ -42,6 +42,5 @@ $slp_options  = get_option('slp_settings');
 
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page
-include('includes/scripts.php'); // loads all JS and CSS
 if ( $slp_options['enable'] )
   include('includes/display-functions.php'); // loads the output functions
