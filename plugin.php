@@ -31,16 +31,17 @@
 
 /* Prevent direct access to the plugin */
 if ( !defined( 'ABSPATH' ) ) {
-		wp_die( __( "Sorry, you are not allowed to access this page directly.", 'slp' ) );
+    wp_die( __( "Sorry, you are not allowed to access this page directly.", 'slp' ) );
 }
-
-// Includes ------------------------------ //
-include('includes/settings-page.php'); // loads the admin settings page
-include('includes/display-functions.php'); // loads the output functions
-include('includes/scripts.php'); // loads all JS and CSS
 
 // Global Variables ---------------------- //
 $slp_prefix = 'slp_';
 $slp_plugin_name = 'Stealth Login Page';
 // retrieve plugin settings from options table
 $slp_options  = get_option('slp_settings');
+
+// Includes ------------------------------ //
+include('includes/settings-page.php'); // loads the admin settings page
+include('includes/scripts.php'); // loads all JS and CSS
+if ( $slp_options['enable'] )
+  include('includes/display-functions.php'); // loads the output functions
