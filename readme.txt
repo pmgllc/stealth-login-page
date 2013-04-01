@@ -31,6 +31,10 @@ Absolutely.
 
 Yes, as long as you are not actively logged into the site on that computer. You may enter your dashboard normally if you're in an active session. Once the session expires, you're further protected by it automatically redirecting rather than gaining access to the login form since WordPress redirects session timeouts to wp-login.php, unaware of the new URL string.
 
+= What do I do if I forget my link and can't find the e-mail the plugin sent me? =
+
+You'll need FTP access to your site. Renaming the stealth-login-page folder in /wp-content/plugins/ will remove the stealth security and allow you back into your dashboard.
+
 == Screenshots ==
 
 1. The options page.
