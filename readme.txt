@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,10 +43,16 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
+= 1.1.0 =
+* Localization release.
+
 = 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
 
+= 1.1.0 =
+* Localization release. Added German localization.
+
 = 1.0.0 =
-Initial stable release. Please update from alpha now.
+Initial stable release.
