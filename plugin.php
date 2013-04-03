@@ -6,6 +6,8 @@
   Author: Jesse Petersen
   Author URI: http://www.petersenmediagroup.com
   Description: Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess
+  Text Domain: stealth-login-page
+  Domain Path: /languages/
  */
 /*
   Copyright 2013 Jesse Petersen
@@ -31,7 +33,17 @@
 
 /* Prevent direct access to the plugin */
 if ( !defined( 'ABSPATH' ) ) {
-    wp_die( __( "Sorry, you are not allowed to access this page directly.", 'slp' ) );
+    wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
+}
+
+add_action( 'init', 'slp_load_plugin_translations', 1 );
+/**
+ * Load translations for this plugin
+ */
+function slp_load_plugin_translations() {
+  
+  load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
 }
 
 // Global Variables ---------------------- //
