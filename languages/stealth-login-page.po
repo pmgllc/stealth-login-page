@@ -1,0 +1,94 @@
+# This file is distributed under the same license as the Stealth Login Page package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2013-04-03 15:50:52+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Stealth Login Page\n"
+
+#: includes/settings-page.php:5 plugin.php:0
+msgid "Stealth Login Page"
+msgstr ""
+
+#: includes/settings-page.php:19
+msgid "Custom login URL for %s"
+msgstr ""
+
+#: includes/settings-page.php:20
+msgid "Your custom login URL for %1$s is %2$s"
+msgstr ""
+
+#: includes/settings-page.php:31
+msgid "Stealth Login Page Options"
+msgstr ""
+
+#: includes/settings-page.php:36
+msgid "Enable/Disable Stealth Login Page"
+msgstr ""
+
+#: includes/settings-page.php:40
+msgid "Enable Stealth Mode"
+msgstr ""
+
+#: includes/settings-page.php:42
+msgid "Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below."
+msgstr ""
+
+#: includes/settings-page.php:44
+msgid "URL to redirect unauthorized attempts to"
+msgstr ""
+
+#: includes/settings-page.php:48
+msgid "The first part of the new URL string to reach your login form is the \"question.\" It is just an arbitrary word or code. Complexity will not matter much at this time."
+msgstr ""
+
+#: includes/settings-page.php:50
+msgid "String used for the \"question\""
+msgstr ""
+
+#: includes/settings-page.php:54
+msgid "The second part of the new URL string to reach your login form is the \"answer.\" It is also just an arbitrary word or code."
+msgstr ""
+
+#: includes/settings-page.php:56
+msgid "String used for the \"answer\""
+msgstr ""
+
+#: includes/settings-page.php:63
+msgid "Email login URL to admin"
+msgstr ""
+
+#: includes/settings-page.php:67
+msgid "Save Settings"
+msgstr ""
+
+#: includes/settings-page.php:73
+msgid "Your custom login URL is:"
+msgstr ""
+
+#: plugin.php:0
+msgid "http://www.petersenmediagroup.com/plugins/stealth-login-page"
+msgstr ""
+
+#: plugin.php:0
+msgid "Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess"
+msgstr ""
+
+#: plugin.php:0
+msgid "Jesse Petersen"
+msgstr ""
+
+#: plugin.php:0
+msgid "http://www.petersenmediagroup.com"
+msgstr ""
+
+#: plugin.php:0
+msgid "1.0.0"
+msgstr ""
+
+#: plugin.php:36
+msgid "Sorry, you are not allowed to access this page directly."
+msgstr ""
