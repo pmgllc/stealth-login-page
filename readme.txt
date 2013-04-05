@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,19 @@ Protect your /wp-admin and wp-login.php pages from being accessed without editin
 
 == Description ==
 
-Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess files. Without locking down access via IP address or file permissions, this plugin creates a secret, customizable, login URL string. Those attempting to gain access to your login form will be automatcally redirected to a customizable URL.
+Protect your /wp-admin and wp-login.php pages from being accessed by obscuring the WP login form URL without editing any .htaccess files.
+
+= What it does =
+
+Without locking down access via IP address or file permissions, this plugin creates a secret, customizable, login URL string. Those attempting to gain access to your login form will be automatcally redirected to a customizable URL.
+
+= Why it exists =
+
+When using a login limiting plugin, it is possible that someone is on your network and attempting to login, which will then lock you out because you share the same IP address. This plugin hides your login screen so you don't experience lockdowns when you didn't create the lockdown. 
+
+= NOTE =
+
+This does NOT replace the need for security "best practices" such as a strong password or a secure hosting environment. This is an additional layer of security, best combined with a login limiter such as <a href="http://wordpress.org/extend/plugins/limit-login-attempts/">Limit Login Attempts</a> or <a href="http://wordpress.org/extend/plugins/login-lockdown/">Login Lockdown</a>.
 
 == Installation ==
 
@@ -43,6 +55,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
+= 1.1.1 =
+* Bugfix: PHP debug error when activated by not enabled.
+* Elaborated readme.txt to point out that this does not replace "best practices" for security protocol in other areas. This is simply another layer.
+
 = 1.1.0 =
 * Localization release.
 
@@ -50,6 +66,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* Bugfix: PHP debug error when activated by not enabled.
+* Elaborated readme.txt to point out that this does not replace "best practices" for security protocol in other areas. This is simply another layer.
 
 = 1.1.0 =
 * Localization release. Added German localization.
