@@ -14,7 +14,7 @@ function slp_register_settings() {
 add_action( 'admin_init', 'slp_email_admin' );
 function slp_email_admin() {
 	global $slp_options;
-	if ( $slp_options['enable'] && $slp_options['question'] && $slp_options['answer']  && isset ( $_POST['email-admin'] ) && current_user_can( 'manage_options' ) ) {
+	if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer']  && isset ( $_POST['email-admin'] ) && current_user_can( 'manage_options' ) ) {
 		$to = get_bloginfo( 'admin_email' );
 		$subject = sprintf( __( 'Custom login URL for %s', 'stealth-login-page' ), get_bloginfo( 'name' ) );
 		$message = sprintf( __( 'Your custom login URL for %1$s is %2$s', 'stealth-login-page' ), get_bloginfo( 'name' ), wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] );
@@ -35,7 +35,7 @@ function slp_admin() {
 
 		<h4><?php _e( 'Enable/Disable Stealth Login Page', 'stealth-login-page' ); ?></h4>
 
-		<input id="slp_settings[enable]" type="checkbox" name="slp_settings[enable]" value="1" <?php checked(1, $slp_options['enable']); ?> />
+		<input id="slp_settings[enable]" type="checkbox" name="slp_settings[enable]" value="1" <?php checked(1, isset( $slp_options['enable'] ) ); ?> />
 
 		<label class="description" for="slp_settings[enable]"><?php _e( 'Enable Stealth Mode', 'stealth-login-page' ); ?></label>
 
@@ -68,7 +68,7 @@ function slp_admin() {
 		</p>
 	</form>
 
-	<?php if ( $slp_options['enable'] && $slp_options['question'] && $slp_options['answer'] ) { ?>
+	<?php if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer'] ) { ?>
 		<div class="custom-url">
 			<p><?php _e( 'Your custom login URL is:', 'stealth-login-page' ); ?> <a href="<?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] ?>"> <?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer']; ?></a></p>
 		</div>
