@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ This does NOT replace the need for security "best practices" such as a strong pa
 
 Absolutely.
 
+= I noticed Limit Login Attempts or Login Lockdown still reporting lockouts. Why? =
+
+We've realized that bots (or really bored people) can enter a URL string in the address bar that attempts to log in without ever showing the login form. If the guess is unsuccessful, then they are redirected just the same and their IP address is logged by the other plugins. This reinforces the need for a 3-prong approach: strong credentials, login limiter plugin, and a stealthy login page.
+
 = Are both the redirected folder /wp-admin and the page wp-login.php secured? =
 
 Yes, as long as you are not actively logged into the site on that computer. You may enter your dashboard normally if you're in an active session. Once the session expires, you're further protected by it automatically redirecting rather than gaining access to the login form since WordPress redirects session timeouts to wp-login.php, unaware of the new URL string.
@@ -55,6 +59,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
+= 1.1.2 =
+* Polish localization.
+* Updated FAQ with new information on why lockouts can still happen. I am working out how to protect from that, also, if it is at all possible.
+
 = 1.1.1 =
 * Bugfix: PHP debug error when activated by not enabled.
 * Elaborated readme.txt to point out that this does not replace "best practices" for security protocol in other areas. This is simply another layer.
@@ -66,6 +74,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+* Polish localization.
+* Updated FAQ with new information on why lockouts can still happen. I am working out how to protect from that, also, if it is at all possible.
 
 = 1.1.1 =
 * Bugfix: PHP debug error when activated by not enabled.
