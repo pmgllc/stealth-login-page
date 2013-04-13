@@ -11,6 +11,22 @@ function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
 }
 
+$slp_installed_date = get_option('slp_installed_date');
+
+if ($slp_installed_date=="") {
+	$slp_installed_date = time();
+}
+
+if ($slp_installed_date < ( time() - 476000 )) {
+	if (get_option('slp_td') != "hide") {
+		add_action('admin_notices', 'slp_pluign_promotion',1);
+		}
+}
+
+function slp_pluign_promotion() {
+	return $slp_installed_date;
+}
+
 add_action( 'admin_init', 'slp_email_admin' );
 function slp_email_admin() {
 	global $slp_options;
@@ -72,21 +88,11 @@ function slp_admin() {
 		<div class="custom-url">
 			<p><?php _e( 'Your custom login URL is:', 'stealth-login-page' ); ?> <a href="<?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] ?>"> <?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer']; ?></a></p>
 		</div>
-		<?php } ?>
+		<?php } 
+		return $slp_installed_date;
+		?>
 
 	</div><!-- .wrap -->
 	<?php
 	echo ob_get_clean();
-}
-
-$slp_installed_date = get_option('slp_installed_date');
-
-if ($slp_installed_date=="") {
-	$slp_installed_date = time();
-}
-
-if ($slp_installed_date < ( time() - 476000 )) {
-	if (get_option('slp_td') != "hide") {
-		add_action('admin_notices', 'slp_pluign_promotion',1);
-		}
 }
