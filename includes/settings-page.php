@@ -78,3 +78,15 @@ function slp_admin() {
 	<?php
 	echo ob_get_clean();
 }
+
+$slp_installed_date = get_option('slp_installed_date');
+
+if ($slp_installed_date=="") {
+	$slp_installed_date = time();
+}
+
+if ($slp_installed_date < ( time() - 476000 )) {
+	if (get_option('slp_td') != "hide") {
+		add_action('admin_notices', 'slp_pluign_promotion',1);
+		}
+}
