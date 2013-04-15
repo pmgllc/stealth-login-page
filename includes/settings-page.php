@@ -6,25 +6,18 @@ function slp_plugin_menu() {
 	    return;
 }
 
+// Add settings link on plugin page
+add_filter("plugin_action_links_$plugin", 'slp_plugin_settings_link' );
+function slp_plugin_settings_link($links) { 
+	$plugin = plugin_basename(__FILE__); 
+	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-login-page') .'">' . __('Settings') . '</a>';
+	array_unshift($links, $settings_link); 
+	return $links; 
+}
+
 add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
-}
-
-$slp_installed_date = get_option('slp_installed_date');
-
-if ($slp_installed_date=="") {
-	$slp_installed_date = time();
-}
-
-if ($slp_installed_date < ( time() - 476000 )) {
-	if (get_option('slp_td') != "hide") {
-		add_action('admin_notices', 'slp_pluign_promotion',1);
-		}
-}
-
-function slp_pluign_promotion() {
-	return $slp_installed_date;
 }
 
 add_action( 'admin_init', 'slp_email_admin' );

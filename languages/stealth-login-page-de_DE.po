@@ -138,4 +138,3 @@ msgstr "1.0.0"
 #: plugin.php:36
 msgid "Sorry, you are not allowed to access this page directly."
 msgstr "Entschuldigung, aber Ihnen ist es nicht erlaubt auf diese Seite direkt zuzugreifen."
-
