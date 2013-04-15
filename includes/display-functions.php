@@ -22,7 +22,9 @@ if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp
 
 	exit();
 
-elseif ( ! isset( $_GET[$question] ) )
+}
+
+if ( ! isset( $_GET[$question] ) )
 	wp_redirect( esc_url_raw ($redirect), 302 );
 
 
@@ -32,6 +34,4 @@ elseif ( ! isset( $_GET[$question] ) )
 		if ( $_GET[$question] !== $answer )
 			wp_redirect( esc_url_raw ($redirect), 302 );
 	}
-}
-
 }
