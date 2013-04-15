@@ -7,25 +7,13 @@ function slp_plugin_menu() {
 }
 
 // Add settings link on plugin page
-add_filter( 'plugin_action_links', array( $this, 'admin_settings_link' ), 10, 2  );
-//add_filter( "plugin_action_links_$plugin", 'slp_plugin_settings_link' );
-//function slp_plugin_settings_link($links) { 
-//	$plugin = plugin_basename(__FILE__); 
-//	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-//login-page') .'">' . __('Settings') . '</a>';
-//	array_unshift($links, $settings_link); 
-//	return $links; 
-//}
-
-public function admin_settings_link( $links, $file ) {
-
-		if ( plugin_basename( __FILE__ ) == $file ) {
-			$settings_link = '<a href="' . admin_url( 'options-general.php?page=stealth-login-page' ) . '">' . __( 'Settings', 'stealth-login-page' ) . '</a>';
-			array_unshift( $links, $settings_link );
-		}
-
-		return $links;
-	}
-
+add_filter( "plugin_action_links_$plugin", 'slp_plugin_settings_link' );
+function slp_plugin_settings_link($links) { 
+	$plugin = plugin_basename(__FILE__); 
+	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-login-page') .'">' . __('Settings') . '</a>';
+	array_unshift($links, $settings_link); 
+	return $links; 
+}
 
 add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
