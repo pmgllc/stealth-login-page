@@ -7,9 +7,9 @@ function slp_plugin_menu() {
 }
 
 // Add settings link on plugin page
+$plugin = plugin_basename(__FILE__); 
 add_filter( "plugin_action_links_$plugin", 'slp_plugin_settings_link' );
 function slp_plugin_settings_link($links) { 
-	$plugin = plugin_basename(__FILE__); 
 	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-login-page') .'">' . __('Settings') . '</a>';
 	array_unshift($links, $settings_link); 
 	return $links; 
