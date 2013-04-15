@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
+= 1.2.0 =
+* Will not allow the stealth mode to be enabled until all 3 fields are filled in.
+* Plugged a security hole discovered by @kraft.
+
 = 1.1.2 =
 * Polish localization.
 * Updated FAQ with new information on why lockouts can still happen. I am working out how to protect from that, also, if it is at all possible.
@@ -74,6 +78,11 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+* MAJOR security update - update immediately.
+* Will not allow the stealth mode to be enabled until all 3 fields are filled in.
+* Plugged a security hole discovered by @kraft.
 
 = 1.1.2 =
 * Polish localization.
