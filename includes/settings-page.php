@@ -18,7 +18,7 @@ function slp_plugin_menu() {
 
 add_filter( 'plugin_action_links', 'slp_action_links', 10, 2 );
 function slp_action_links( $links, $file ) {
-    if ( $file == dirname( plugin_basename(__FILE__) . '/plugin.php' ) ) {
+    if ( $file == dirname( plugin_dir_path(__FILE__) . '/plugin.php' ) ) {
         $links[] = '<a href="options-general.php?page=stealth-login-page">' . esc_html__( 'Settings', 'stealth-login-page' ) .' </a>';
     }
 
