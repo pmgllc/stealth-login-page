@@ -16,7 +16,7 @@
 
   Thanks to David Decker for DE localization: http://deckerweb.de/kontakt/
 
-  Licenced under the GNU GPL:
+  Licensed under the GNU GPL:
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
