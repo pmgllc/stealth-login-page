@@ -38,7 +38,34 @@ if ( !defined( 'ABSPATH' ) ) {
     wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
 }
 
-add_action( 'init', 'slp_load_plugin_translations', 1 );
+// Start up the engine
+final class SLPCreator {
+  
+  static $instance;
+
+  function __construct() {
+    self::$instance =& $this;
+    // Actions
+    add_action( 'init', 'slp_load_plugin_translations', 1 );
+    // Filters
+    add_filter( 'plugin_action_links', array( $this, 'admin_settings_link' ), 10, 2  );
+  }
+
+  public function admin_settings_link( $links, $file ) {
+    if (!$this_plugin) {
+      $this_plugin = plugin_basename(__FILE__);
+    }
+
+    if ($file == $this_plugin) {
+      $settings_link = '<a href="' . admin_url( 'options-general.php?page=stealth-login-page' ) . __( 'Settings', 'stealth-login-page' ) . '</a>';
+      array_unshift( $links, $settings_link );
+    }
+
+    return $links;
+
+  }
+}
+
 /**
  * Load translations for this plugin
  */

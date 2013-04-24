@@ -6,26 +6,6 @@ function slp_plugin_menu() {
 	    return;
 }
 
-// Add settings link on plugin page
-//add_filter( 'plugin_action_links_stealth_login_page', 'slp_plugin_settings_link//' );
-//function slp_plugin_settings_link($links) { 
-//	wp_die('Foo!');
-//	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-//login-page') .'">' . __('Settings') . '</a>';
-//	array_unshift($links, $settings_link); 
-//	return $links; 
-//}
-
-
-add_filter( 'plugin_action_links', 'slp_action_links', 10, 2 );
-function slp_action_links( $links, $file ) {
-    if ( $file == dirname( plugin_dir_path(__FILE__) . '/plugin.php' ) ) {
-        $links[] = '<a href="options-general.php?page=stealth-login-page">' . esc_html__( 'Settings', 'stealth-login-page' ) .' </a>';
-    }
-
-    return $links;
-}
-
-
 add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
