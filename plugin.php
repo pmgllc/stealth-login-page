@@ -41,7 +41,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Add settings link on plugin page
  *
- * @since 1.x.x
+ * @since 1.2.0
  * @param array $links
  * @param string $file
  * @return array
