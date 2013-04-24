@@ -38,37 +38,32 @@ if ( !defined( 'ABSPATH' ) ) {
     wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
 }
 
-// Start up the engine
-final class SLPCreator {
-  
-  static $instance;
+/**
+ * Add settings link on plugin page
+ *
+ * @since 1.x.x
+ * @param array $links
+ * @param string $file
+ * @return array
+ */
+add_filter( 'plugin_action_links', 'slp_admin_settings_link', 10, 2  );
+function slp_admin_settings_link( $links, $file ) {
 
-  function __construct() {
-    self::$instance =& $this;
-    // Actions
-    add_action( 'init', 'slp_load_plugin_translations', 1 );
-    // Filters
-    add_filter( 'plugin_action_links', array( $this, 'admin_settings_link' ), 10, 2  );
+  if ( plugin_basename(__FILE__) == $file ) {
+    $settings_link = '<a href="' . admin_url( 'options-general.php?page=stealth-login-page' ) . '">' . __( 'Settings', 'stealth-login-page' ) . '</a>';
+    array_unshift( $links, $settings_link );
   }
 
-  public function admin_settings_link( $links, $file ) {
-    if (!$this_plugin) {
-      $this_plugin = plugin_basename(__FILE__);
-    }
+  return $links;
 
-    if ($file == $this_plugin) {
-      $settings_link = '<a href="' . admin_url( 'options-general.php?page=stealth-login-page' ) . __( 'Settings', 'stealth-login-page' ) . '</a>';
-      array_unshift( $links, $settings_link );
-    }
-
-    return $links;
-
-  }
 }
 
 /**
  * Load translations for this plugin
+ *
+ * @since 1.1.0
  */
+add_action( 'init', 'slp_load_plugin_translations', 1 );
 function slp_load_plugin_translations() {
   
   load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
