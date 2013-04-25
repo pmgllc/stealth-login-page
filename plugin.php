@@ -70,6 +70,29 @@ function slp_load_plugin_translations() {
 
 }
 
+/**
+* Intercept outside $_POST attempts
+*
+* @since 1.2.0
+*/
+//add_action('init', 'intercept_login');
+function intercept_login() {
+  $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+  $block = array("5.39.218.137", "46.160.85.231");
+     // if there's a valid referrer, and it's not the default log-in screen
+
+     if ( !empty($referrer) || !strstr($referrer,'wp-login.php') || !strstr($referrer,'wp-admin') ) {
+          wp_redirect( 'http://www.google.com', 404 );
+          exit;
+     }
+
+     //if (in_array ($_SERVER['REMOTE_ADDR'], $block)) {
+     // wp_redirect( 'http://www.google.com', 404 );
+     //     exit;
+     //}
+
+}
+
 // Global Variables ---------------------- //
 $slp_prefix = 'slp_';
 $slp_plugin_name = 'Stealth Login Page';
