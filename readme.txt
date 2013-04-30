@@ -26,6 +26,10 @@ When using a login limiting plugin, it is possible that someone is on your netwo
 
 This does NOT replace the need for security "best practices" such as a strong password or a secure hosting environment. This is an additional layer of security, best combined with a login limiter such as <a href="http://wordpress.org/extend/plugins/limit-login-attempts/">Limit Login Attempts</a> or <a href="http://wordpress.org/extend/plugins/login-lockdown/">Login Lockdown</a>.
 
+= WP 3.6 Warning =
+
+It has come to my attention that the new WP 3.6 session timeout function opens up the login form but it doesn't have any idea about the new URL to avoid a redirect, so it will automatically redirect when this happens. I AM trying to fix this before 3.6 drops, but please be aware of this if you don't see v 1.2.1 and you've upgraded to WP 3.6 or 3.6-beta.
+
 == Installation ==
 
 1. Upload contents of the directory to /wp-content/plugins/ (or use the automatic installer)
