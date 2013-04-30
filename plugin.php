@@ -2,7 +2,7 @@
 /*
   Plugin Name: Stealth Login Page
   Plugin URI: http://www.petersenmediagroup.com/plugins/stealth-login-page
-  Version: 1.2.0
+  Version: 1.1.3
   Author: Jesse Petersen
   Author URI: http://www.petersenmediagroup.com
   Description: Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess
@@ -16,7 +16,7 @@
 
   Thanks to David Decker for DE localization: http://deckerweb.de/kontakt/
 
-  Licenced under the GNU GPL:
+  Licensed under the GNU GPL:
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -38,13 +38,53 @@ if ( !defined( 'ABSPATH' ) ) {
     wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
 }
 
-add_action( 'init', 'slp_load_plugin_translations', 1 );
+/**
+ * Add settings link on plugin page
+ *
+ * @since 1.1.3
+ * @param array $links
+ * @param string $file
+ * @return array
+ */
+add_filter( 'plugin_action_links', 'slp_admin_settings_link', 10, 2  );
+function slp_admin_settings_link( $links, $file ) {
+
+  if ( plugin_basename(__FILE__) == $file ) {
+    $settings_link = '<a href="' . admin_url( 'options-general.php?page=stealth-login-page' ) . '">' . __( 'Settings', 'stealth-login-page' ) . '</a>';
+    array_unshift( $links, $settings_link );
+  }
+
+  return $links;
+
+}
+
 /**
  * Load translations for this plugin
+ *
+ * @since 1.1.0
  */
+add_action( 'init', 'slp_load_plugin_translations', 1 );
 function slp_load_plugin_translations() {
   
   load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
+}
+
+/**
+* Intercept outside $_POST attempts
+*
+* @since 1.1.3
+*/
+//add_action('init', 'intercept_login');
+function intercept_login() {
+  $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+  $block = array("5.39.218.137", "46.160.85.231");
+     // if there's a valid referrer, and it's not the default log-in screen
+
+     if ( !empty($referrer) || !strstr($referrer,'wp-login.php') || !strstr($referrer,'wp-admin') ) {
+          wp_redirect( 'http://www.google.com', 404 );
+          exit;
+     }
 
 }
 

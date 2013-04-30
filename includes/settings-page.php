@@ -6,26 +6,6 @@ function slp_plugin_menu() {
 	    return;
 }
 
-// Add settings link on plugin page
-//add_filter( 'plugin_action_links_stealth_login_page', 'slp_plugin_settings_link//' );
-//function slp_plugin_settings_link($links) { 
-//	wp_die('Foo!');
-//	$settings_link = '<a href="'. admin_url('options-general.php?page=stealth-//login-page') .'">' . __('Settings') . '</a>';
-//	array_unshift($links, $settings_link); 
-//	return $links; 
-//}
-
-
-add_filter( 'plugin_action_links', 'slp_action_links', 10, 2 );
-function slp_action_links( $links, $file ) {
-    if ( $file == dirname( plugin_dir_path(__FILE__) . '/plugin.php' ) ) {
-        $links[] = '<a href="options-general.php?page=stealth-login-page">' . esc_html__( 'Settings', 'stealth-login-page' ) .' </a>';
-    }
-
-    return $links;
-}
-
-
 add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
@@ -52,7 +32,7 @@ function slp_admin() {
 	<form method="post" action="options.php">
 
 		<?php settings_fields('slp_settings_group'); ?>
-
+		<?php slp_credits(); ?>
 		<h4><?php _e( 'Enable/Disable Stealth Login Page', 'stealth-login-page' ); ?></h4>
 
 		<input id="slp_settings[enable]" type="checkbox" name="slp_settings[enable]" value="1" <?php checked(1, isset( $slp_options['enable'] ) ); ?> />
@@ -99,4 +79,48 @@ function slp_admin() {
 	</div><!-- .wrap -->
 	<?php
 	echo ob_get_clean();
+}
+
+/*-------------------------------------------------------------
+ Name:      slp_credits
+
+ Purpose:   Promotional stuff shown throughout the plugin
+ Since:		1.1.3
+-------------------------------------------------------------*/
+function slp_credits() {
+
+	echo '<table class="widefat" style="margin-top: .5em">';
+
+	echo '<thead>';
+	echo '<tr valign="top">';
+	echo '	<th width="27%">'.__('Your support makes a difference', 'stealth-login-page').'</th>';
+	echo '	<th>'.__('Useful links', 'stealth-login-page').'</th>';
+	echo '	<th width="35%">'.__('Brought to you by', 'stealth-login-page').'</th>';
+	echo '</tr>';
+	echo '</thead>';
+
+	echo '<tbody>';
+	echo '<tr>';
+	echo '<td><ul>';
+	echo '	<li><center>'.__('Your generous gift will ensure the continued development of Stealth Login Page and bring more benefits and features.
+		Thank you for your consideration!', 'stealth-login-page').'</center></li>';
+	echo '	<li><center><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7T2JDSM64HQV8" target="_blank"><img src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a></center></li>';
+	echo '	<li>'.__('Like the plugin? Please ', 'stealth-login-page').' <a href="http://wordpress.org/support/view/plugin-reviews/stealth-login-page?rate=5#postform" target="_blank">'.__('rate and review', 'stealth-login-page').'</a> it.</li>';
+	echo '</ul></td>';
+
+	echo '<td style="border-left:1px #ddd solid;"><ul>';
+	
+	echo '	<li>'.__('Find my website at', 'stealth-login-page').' <a href="http://www.petersenmediagroup.com" target="_blank">petersenmediagroup.com</a>.</li>';
+	echo '	<li>'.__('Beef up your security even more with', 'stealth-login-page').' <a href="http://wordpress.org/extend/plugins/limit-login-attempts/" target="_blank">'.__('Limit Login Attempts','stealth-login-page').'</a>.</li>';
+	echo '	<li>'.__('Learn more about secure WordPress hosting with a ', 'stealth-login-page').' <a href="http://www.petersenmediagroup.com/wordpress-hosting/" target="_blank">'.__('managed host', 'stealth-login-page').'</a>.</li>';
+	echo '</ul></td>';
+
+	echo '<td style="border-left:1px #ddd solid;"><ul>';
+	echo '	<li><a href="http://www.petersenmediagroup.com" title="Petersen Media Group"><img src="'.WP_CONTENT_URL.'/plugins/stealth-login-page/images/pmg-logo.png" alt="pmg-logo" width="150" height="67" align="left" style="padding: 0 10px 10px 0;" /></a>';
+	echo '	<a href="http://www.petersenmediagroup.com" title="Petersen Media Group">Petersen Media Group</a> - '.__('I’m a straight-shooter and listen to what my clients want, run it through my filters, and come up with what they need. Not a "yes man" by any stretch of the imagination, I don’t consider a project a success unless it serves my client well. I have a "do no harm" policy to protect them from mis-information and trying things I’ve already learned about the hard way.', 'stealth-login-page').' '.__('Visit the', 'stealth-login-page').' <a href="http://www.petersenmediagroup.com" target="_blank">'.__('Petersen Media Group', 'stealth-login-page').'</a> '.__('website', 'stealth-login-page').'.</li>';
+	echo '</ul></td>';
+	echo '</tr>';
+	echo '</tbody>';
+
+	echo '</table>';
 }

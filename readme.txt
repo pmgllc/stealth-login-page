@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.2.0
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,10 @@ When using a login limiting plugin, it is possible that someone is on your netwo
 = NOTE =
 
 This does NOT replace the need for security "best practices" such as a strong password or a secure hosting environment. This is an additional layer of security, best combined with a login limiter such as <a href="http://wordpress.org/extend/plugins/limit-login-attempts/">Limit Login Attempts</a> or <a href="http://wordpress.org/extend/plugins/login-lockdown/">Login Lockdown</a>.
+
+= WP 3.6 Warning =
+
+It has come to my attention that the new WP 3.6 session timeout function opens up the login form but it doesn't have any idea about the new URL to avoid a redirect, so it will automatically redirect when this happens. I AM trying to fix this before 3.6 drops, but please be aware of this if you don't see v 1.2.1 and you've upgraded to WP 3.6 or 3.6-beta.
 
 == Installation ==
 
@@ -59,9 +63,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
-= 1.2.0 =
-* Will not allow the stealth mode to be enabled until all 3 fields are filled in.
-* Plugged a security hole discovered by @kraft.
+= 1.1.3=
+* Added some more IP address security - to be updated periodically.
+* Added Settings Link on the Plugins page to link to the settings.
+* Added useful links to the settings page.
 
 = 1.1.2 =
 * Polish localization.
@@ -79,10 +84,10 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-* MAJOR security update - update immediately.
-* Will not allow the stealth mode to be enabled until all 3 fields are filled in.
-* Plugged a security hole discovered by @kraft.
+= 1.1.3=
+* Added some more IP address security - to be updated periodically.
+* Added Settings Link on the Plugins page to link to the settings.
+* Added useful links to the settings page.
 
 = 1.1.2 =
 * Polish localization.
