@@ -86,11 +86,6 @@ function intercept_login() {
           exit;
      }
 
-     //if (in_array ($_SERVER['REMOTE_ADDR'], $block)) {
-     // wp_redirect( 'http://www.google.com', 404 );
-     //     exit;
-     //}
-
 }
 
 // Global Variables ---------------------- //
