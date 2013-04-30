@@ -25,13 +25,13 @@ if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp
 }
 
 if ( ! isset( $_GET[$question] ) )
-	wp_redirect( esc_url_raw ($redirect), 302 );
+	wp_redirect( esc_url_raw ($redirect), 404 );
 
 
 	// check for correct answer
 	if ( isset( $_GET[$question ] ) ) {
 
 		if ( $_GET[$question] !== $answer )
-			wp_redirect( esc_url_raw ($redirect), 302 );
+			wp_redirect( esc_url_raw ($redirect), 404 );
 	}
 }
