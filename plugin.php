@@ -41,7 +41,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Add settings link on plugin page
  *
- * @since 1.2.0
+ * @since 1.1.3
  * @param array $links
  * @param string $file
  * @return array
@@ -73,7 +73,7 @@ function slp_load_plugin_translations() {
 /**
 * Intercept outside $_POST attempts
 *
-* @since 1.2.0
+* @since 1.1.3
 */
 //add_action('init', 'intercept_login');
 function intercept_login() {

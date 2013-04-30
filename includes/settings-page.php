@@ -85,7 +85,7 @@ function slp_admin() {
  Name:      slp_credits
 
  Purpose:   Promotional stuff shown throughout the plugin
- Since:		1.2.0
+ Since:		1.1.3
 -------------------------------------------------------------*/
 function slp_credits() {
 
