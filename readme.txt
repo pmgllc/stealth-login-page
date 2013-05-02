@@ -63,8 +63,7 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
-= 1.1.3=
-* Added some more IP address security - to be updated periodically.
+= 1.1.3 =
 * Added Settings Link on the Plugins page to link to the settings.
 * Added useful links to the settings page.
 
@@ -84,8 +83,7 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Upgrade Notice ==
 
-= 1.1.3=
-* Added some more IP address security - to be updated periodically.
+= 1.1.3 =
 * Added Settings Link on the Plugins page to link to the settings.
 * Added useful links to the settings page.
 

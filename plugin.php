@@ -16,7 +16,7 @@
 
   Thanks to David Decker for DE localization: http://deckerweb.de/kontakt/
 
-  Licensed under the GNU GPL:
+  Licenced under the GNU GPL:
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -38,6 +38,22 @@ if ( !defined( 'ABSPATH' ) ) {
     wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
 }
 
+add_action( 'init', 'slp_load_plugin_translations', 1 );
+/**
+ * Load translations for this plugin
+ */
+function slp_load_plugin_translations() {
+  
+  load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
+}
+
+add_action('admin_menu', 'slp_plugin_menu');
+function slp_plugin_menu() {
+  add_options_page( __( 'Stealth Login Page', 'stealth-login-page' ), __( 'Stealth Login Page', 'stealth-login-page' ), 'manage_options', 'stealth-login-page', 'slp_admin' );
+      return;
+}
+
 /**
  * Add settings link on plugin page
  *
@@ -55,36 +71,6 @@ function slp_admin_settings_link( $links, $file ) {
   }
 
   return $links;
-
-}
-
-/**
- * Load translations for this plugin
- *
- * @since 1.1.0
- */
-add_action( 'init', 'slp_load_plugin_translations', 1 );
-function slp_load_plugin_translations() {
-  
-  load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-
-}
-
-/**
-* Intercept outside $_POST attempts
-*
-* @since 1.1.3
-*/
-//add_action('init', 'intercept_login');
-function intercept_login() {
-  $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
-  $block = array("5.39.218.137", "46.160.85.231");
-     // if there's a valid referrer, and it's not the default log-in screen
-
-     if ( !empty($referrer) || !strstr($referrer,'wp-login.php') || !strstr($referrer,'wp-admin') ) {
-          wp_redirect( 'http://www.google.com', 404 );
-          exit;
-     }
 
 }
 

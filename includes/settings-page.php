@@ -1,11 +1,5 @@
 <?php
 
-add_action('admin_menu', 'slp_plugin_menu');
-function slp_plugin_menu() {
-	add_options_page( __( 'Stealth Login Page', 'stealth-login-page' ), __( 'Stealth Login Page', 'stealth-login-page' ), 'manage_options', 'stealth-login-page', 'slp_admin' );
-	    return;
-}
-
 add_action('admin_init', 'slp_register_settings'); // create settings in database
 function slp_register_settings() {
 	register_setting('slp_settings_group', 'slp_settings');
@@ -22,6 +16,11 @@ function slp_email_admin() {
 	}
 }
 
+/**
+ * Settings page
+ *
+ * @since 1.0.0
+ */
 function slp_admin() {
 
 	global $slp_options;
@@ -31,8 +30,9 @@ function slp_admin() {
 	<h2><?php _e( 'Stealth Login Page Options', 'stealth-login-page' ); ?></h2>
 	<form method="post" action="options.php">
 
-		<?php settings_fields('slp_settings_group'); ?>
-		<?php slp_credits(); ?>
+		<?php settings_fields('slp_settings_group');
+		slp_credits(); ?>
+
 		<h4><?php _e( 'Enable/Disable Stealth Login Page', 'stealth-login-page' ); ?></h4>
 
 		<input id="slp_settings[enable]" type="checkbox" name="slp_settings[enable]" value="1" <?php checked(1, isset( $slp_options['enable'] ) ); ?> />
@@ -43,19 +43,19 @@ function slp_admin() {
 
 			<label class="description" for="slp_settings[redirect_url]"><?php _e( 'URL to redirect unauthorized attempts to', 'stealth-login-page' ); ?></label>
 
-			<input type="text" id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" value="<?php echo $slp_options['redirect_url']; ?>" />
+			<input type="text" required id="slp_settings[redirect_url]" name="slp_settings[redirect_url]" value="<?php echo $slp_options['redirect_url']; ?>" />
 
 		<p><?php _e( 'The first part of the new URL string to reach your login form is the "question." It is just an arbitrary word or code. Complexity will not matter much at this time.', 'stealth-login-page' ); ?></p>
 
 			<label class="description" for="slp_settings[question]"><?php _e( 'String used for the "question"', 'stealth-login-page' ); ?></label>
 
-			<input type="text" id="slp_settings[question]" name="slp_settings[question]" value="<?php echo $slp_options['question']; ?>" />
+			<input type="text" required id="slp_settings[question]" name="slp_settings[question]" value="<?php echo $slp_options['question']; ?>" />
 
 		<p><?php _e( 'The second part of the new URL string to reach your login form is the "answer." It is also just an arbitrary word or code.', 'stealth-login-page' ); ?></p>
 
 			<label class="description" for="slp_settings[answer]"><?php _e( 'String used for the "answer"', 'stealth-login-page' ); ?></label>
 
-			<input type="text" id="slp_settings[answer]" name="slp_settings[answer]" value="<?php echo $slp_options['answer']; ?>"  />
+			<input type="text" required id="slp_settings[answer]" name="slp_settings[answer]" value="<?php echo $slp_options['answer']; ?>"  />
 
 	<p>
 		<input id="email-admin" type="checkbox" name="email-admin" value="0" />
@@ -72,9 +72,7 @@ function slp_admin() {
 		<div class="custom-url">
 			<p><?php _e( 'Your custom login URL is:', 'stealth-login-page' ); ?> <a href="<?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] ?>"> <?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer']; ?></a></p>
 		</div>
-		<?php } 
-	
-		?>
+		<?php } ?>
 
 	</div><!-- .wrap -->
 	<?php
