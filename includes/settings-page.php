@@ -68,9 +68,13 @@ function slp_admin() {
 		</p>
 	</form>
 
-	<?php if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer'] ) { ?>
+	<?php 
+
+	$custom_url = wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'];
+
+	if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer'] ) { ?>
 		<div class="custom-url">
-			<p><?php _e( 'Your custom login URL is:', 'stealth-login-page' ); ?> <a href="<?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] ?>"><?php echo wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer']; ?></a></p>
+			<p><?php _e( 'Your custom login URL is:', 'stealth-login-page' ); ?> <a href="<?php echo $custom_url; ?>"><?php echo $custom_url; ?></a></p>
 		</div>
 		<?php } ?>
 
