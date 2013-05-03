@@ -23,7 +23,7 @@ function slp_email_admin() {
  */
 function slp_admin() {
 
-	global $slp_options;
+	global $slp_options, $custom_url;
 
 	ob_start(); ?>
 	<div class="wrap">
@@ -69,8 +69,6 @@ function slp_admin() {
 	</form>
 
 	<?php 
-
-	$custom_url = wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'];
 
 	if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer'] ) { ?>
 		<div class="custom-url">

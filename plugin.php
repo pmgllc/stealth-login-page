@@ -79,6 +79,7 @@ $slp_prefix = 'slp_';
 $slp_plugin_name = 'Stealth Login Page';
 // retrieve plugin settings from options table
 $slp_options  = get_option('slp_settings');
+$custom_url = wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'];
 
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page
