@@ -92,3 +92,79 @@ msgstr ""
 #: plugin.php:36
 msgid "Sorry, you are not allowed to access this page directly."
 msgstr ""
+
+#: includes/settings-page.php:96
+msgid "Your support makes a difference"
+msgstr ""
+
+#: includes/settings-page.php:97
+msgid "Useful links"
+msgstr ""
+
+#: includes/settings-page.php:98
+msgid "Brought to you by"
+msgstr ""
+
+#: includes/settings-page.php:105
+msgid "Your generous gift will ensure the continued development of Stealth Login Page and bring more benefits and features. Thank you for your consideration!"
+msgstr ""
+
+#: includes/settings-page.php:108
+msgid "Like the plugin? Please "
+msgstr ""
+
+#: includes/settings-page.php:108
+msgid "rate and review"
+msgstr ""
+
+#: includes/settings-page.php:108
+msgid "it"
+msgstr ""
+
+#: includes/settings-page.php:113
+msgid "Find my website at"
+msgstr ""
+
+#: includes/settings-page.php:114
+msgid "Beef up your security even more with"
+msgstr ""
+
+#: includes/settings-page.php:114
+msgid "Limit Login Attempts"
+msgstr ""
+
+#: includes/settings-page.php:115
+msgid "Learn more about secure WordPress hosting with a "
+msgstr ""
+
+#: includes/settings-page.php:115
+msgid "managed host"
+msgstr ""
+
+#: includes/settings-page.php:120
+msgid "I’m a straight-shooter and listen to what my clients want, run it through my filters, and come up with what they need. Not a \"yes man\" by any stretch of the imagination, I don’t consider a project a success unless it serves my client well. I have a \"do no harm\" policy to protect them from mis-information and trying things I’ve already learned about the hard way."
+msgstr ""
+
+#: includes/settings-page.php:120
+msgid "Visit the"
+msgstr ""
+
+#: includes/settings-page.php:120
+msgid "Petersen Media Group"
+msgstr ""
+
+#: includes/settings-page.php:120
+msgid "website"
+msgstr ""
+
+
+
+
+
+
+
+
+
+
+
+

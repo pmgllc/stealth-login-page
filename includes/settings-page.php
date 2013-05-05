@@ -102,10 +102,10 @@ function slp_credits() {
 	echo '<tbody>';
 	echo '<tr>';
 	echo '<td><ul>';
-	echo '	<li><center>'.__('Your generous gift will ensure the continued development of Stealth Login Page and bring more benefits and features.
-		Thank you for your consideration!', 'stealth-login-page').'</center></li>';
+	echo '	<li>'.__('Your generous gift will ensure the continued development of Stealth Login Page and bring more benefits and features. Thank you for your consideration!', 'stealth-login-page').'</li>';
+	
 	echo '	<li><center><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7T2JDSM64HQV8" target="_blank"><img src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a></center></li>';
-	echo '	<li>'.__('Like the plugin? Please ', 'stealth-login-page').' <a href="http://wordpress.org/support/view/plugin-reviews/stealth-login-page?rate=5#postform" target="_blank">'.__('rate and review', 'stealth-login-page').'</a> it.</li>';
+	echo '	<li>'.__('Like the plugin? Please ', 'stealth-login-page').' <a href="http://wordpress.org/support/view/plugin-reviews/stealth-login-page?rate=5#postform" target="_blank">'.__('rate and review', 'stealth-login-page').'</a> '.__('it', 'stealth-login-page').'.</li>';
 	echo '</ul></td>';
 
 	echo '<td style="border-left:1px #ddd solid;"><ul>';
