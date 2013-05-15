@@ -2,7 +2,7 @@
 /*
   Plugin Name: Stealth Login Page
   Plugin URI: http://wordpress.org/extend/plugins/stealth-login-page/
-  Version: 2.0.2
+  Version: 2.1.2
   Author: Jesse Petersen
   Author URI: http://www.petersenmediagroup.com
   Description: Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess
@@ -74,12 +74,34 @@ function slp_admin_settings_link( $links, $file ) {
 
 }
 
+/**
+ * Edit the logout/login/lost_password URLs to the new custom URL
+ *
+ * @since 2.1.0
+ * @param $old
+ * @param $new
+ * @param $url
+ * @return array
+ */
+add_filter('site_url',  'wplogin_filter', 10, 3);
+function wplogin_filter( $url, $path, $orig_scheme ) {
+  global $custom_url_ending;
+
+    $old  = array( "/(wp-login\.php)/");
+    $new  = array( $custom_url_ending );
+
+  return preg_replace( $old, $new, $url, 1);
+}
+
 // Global Variables ---------------------- //
 $slp_prefix = 'slp_';
 $slp_plugin_name = 'Stealth Login Page';
 // retrieve plugin settings from options table
 $slp_options  = get_option('slp_settings');
-$custom_url = wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'];
+$custom_url = site_url() . '/wp-login.php?' . $slp_options['question'] . '=' . $slp_options['answer'];
+$custom_url_ending = "wp-login.php?" . $slp_options['question'] . '=' . $slp_options['answer'];
+$custom_logged_out = $custom_url . '?loggedout=true';
+$custom_lost_password = $custom_url . '&action=lostpassword';
 
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page

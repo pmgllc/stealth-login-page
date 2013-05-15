@@ -7,11 +7,11 @@ function slp_register_settings() {
 
 add_action( 'admin_init', 'slp_email_admin' );
 function slp_email_admin() {
-	global $slp_options;
+	global $slp_options, $custom_url;
 	if ( isset( $slp_options['enable'] ) && $slp_options['question'] && $slp_options['answer']  && isset ( $_POST['email-admin'] ) && current_user_can( 'manage_options' ) ) {
 		$to = get_bloginfo( 'admin_email' );
 		$subject = sprintf( __( 'Custom login URL for %s', 'stealth-login-page' ), get_bloginfo( 'name' ) );
-		$message = sprintf( __( 'Your custom login URL for %1$s is %2$s', 'stealth-login-page' ), get_bloginfo( 'name' ), wp_login_url() . '?' . $slp_options['question'] . '=' . $slp_options['answer'] );
+		$message = sprintf( __( 'Your custom login URL for %1$s is %2$s', 'stealth-login-page' ), get_bloginfo( 'name' ), $custom_url );
 		wp_mail( $to, $subject, $message );
 	}
 }
@@ -39,7 +39,7 @@ function slp_admin() {
 
 		<label class="description" for="slp_settings[enable]"><?php _e( 'Enable Stealth Mode', 'stealth-login-page' ); ?></label>
 
-		<p><?php _e( 'Those attempting to gain access to your login form will be automatcally redirected to a customizble URL. Enter that URL below.', 'stealth-login-page' ); ?></p>
+		<p><?php _e( 'Those attempting to gain access to your login form will be automatcally redirected to a customizable URL. Enter that URL below.', 'stealth-login-page' ); ?></p>
 
 			<label class="description" for="slp_settings[redirect_url]"><?php _e( 'URL to redirect unauthorized attempts to', 'stealth-login-page' ); ?></label>
 

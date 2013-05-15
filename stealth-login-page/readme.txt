@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 2.0.2
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,19 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
+= 2.1.2 =
+* Efficiencies improved.
+* Edited global variables for efficiency.
+* Eliminated potential conditional statment oversights in later updates.
+
+= 2.1.1 =
+* Bugfix - stealth re-enabled AND fixed the lost password link on the login page.
+* Pending a fix to correct the redirect upon logout. It involves a WP redirect of a one-time URL that the plugin needs to allow. I can't allow it without allowing all remote attacks again.
+* This plugin is solid, once again.
+
+= 2.1.0 =
+* Corrected the logout link in the dashboard and the lost password link on the login page.
+
 = 2.0.2 =
 * Bugfix - activating plugin error
 
@@ -95,6 +108,19 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+* Efficiencies improved.
+* Edited global variables for efficiency.
+* Eliminated potential conditional statment oversights in later updates.
+
+= 2.1.1 =
+* CRITICAL Bugfix - stealth re-enabled AND fixed the lost password link on the login page.
+* Pending a fix to correct the redirect upon logout. It involves a WP redirect of a one-time URL that the plugin needs to allow. I can't allow it without allowing all remote attacks again.
+* This plugin is solid, once again.
+
+= 2.1.0 =
+* Corrected the logout link in the dashboard and the lost password link on the login page.
 
 = 2.0.2 =
 * Bugfix - activating plugin error

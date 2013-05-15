@@ -1,7 +1,9 @@
 <?php
 
-
-// Check the URL of the WordPress login page for a specific query string.
+/*
+* Check the URL of the WordPress login page for a specific query string.
+*
+*/
 
 add_action( 'login_init', 'slp_login_stringcheck' );
 function slp_login_stringcheck() {
@@ -13,21 +15,11 @@ function slp_login_stringcheck() {
 	$question = $slp_options['question'];
 	$answer = $slp_options['answer'];
 
-	// set the request URL
-	$form_request = site_url() . $_SERVER['REQUEST_URI'];
-	
-if ( $form_request !== $custom_url ) {
-	wp_redirect( esc_url_raw ($redirect), 302 );
-}
+	// get the requested URL
+	$form_request = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-	if ( ! isset( $_GET[$question] ) )
-		wp_redirect( esc_url_raw ($redirect), 302 );
-		
-		// check for correct answer
-		if ( isset( $_GET[$question ] ) ) {
-	
-			if ( $_GET[$question] !== $answer ) {	
+if ( $form_request !== $custom_url ) {
 				wp_redirect( esc_url_raw ($redirect), 302 );
 			}
-		}
-	}
+
+}
