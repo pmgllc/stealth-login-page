@@ -1,8 +1,8 @@
 <?php
 /*
   Plugin Name: Stealth Login Page
-  Plugin URI: http://www.petersenmediagroup.com/plugins/stealth-login-page
-  Version: 1.1.3
+  Plugin URI: http://wordpress.org/extend/plugins/stealth-login-page/
+  Version: 2.1.2
   Author: Jesse Petersen
   Author URI: http://www.petersenmediagroup.com
   Description: Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess
@@ -16,7 +16,7 @@
 
   Thanks to David Decker for DE localization: http://deckerweb.de/kontakt/
 
-  Licensed under the GNU GPL:
+  Licenced under the GNU GPL:
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -36,6 +36,22 @@
 /* Prevent direct access to the plugin */
 if ( !defined( 'ABSPATH' ) ) {
     wp_die( __( 'Sorry, you are not allowed to access this page directly.', 'stealth-login-page' ) );
+}
+
+add_action( 'init', 'slp_load_plugin_translations', 1 );
+/**
+ * Load translations for this plugin
+ */
+function slp_load_plugin_translations() {
+  
+  load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
+}
+
+add_action('admin_menu', 'slp_plugin_menu');
+function slp_plugin_menu() {
+  add_options_page( __( 'Stealth Login Page', 'stealth-login-page' ), __( 'Stealth Login Page', 'stealth-login-page' ), 'manage_options', 'stealth-login-page', 'slp_admin' );
+      return;
 }
 
 /**
@@ -59,33 +75,22 @@ function slp_admin_settings_link( $links, $file ) {
 }
 
 /**
- * Load translations for this plugin
+ * Edit the logout/login/lost_password URLs to the new custom URL
  *
- * @since 1.1.0
+ * @since 2.1.0
+ * @param $old
+ * @param $new
+ * @param $url
+ * @return array
  */
-add_action( 'init', 'slp_load_plugin_translations', 1 );
-function slp_load_plugin_translations() {
-  
-  load_plugin_textdomain( 'stealth-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+add_filter('site_url',  'wplogin_filter', 10, 3);
+function wplogin_filter( $url, $path, $orig_scheme ) {
+  global $custom_url_ending;
 
-}
+    $old  = array( "/(wp-login\.php)/");
+    $new  = array( $custom_url_ending );
 
-/**
-* Intercept outside $_POST attempts
-*
-* @since 1.1.3
-*/
-//add_action('init', 'intercept_login');
-function intercept_login() {
-  $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
-  $block = array("5.39.218.137", "46.160.85.231");
-     // if there's a valid referrer, and it's not the default log-in screen
-
-     if ( !empty($referrer) || !strstr($referrer,'wp-login.php') || !strstr($referrer,'wp-admin') ) {
-          wp_redirect( 'http://www.google.com', 404 );
-          exit;
-     }
-
+  return preg_replace( $old, $new, $url, 1);
 }
 
 // Global Variables ---------------------- //
@@ -93,6 +98,10 @@ $slp_prefix = 'slp_';
 $slp_plugin_name = 'Stealth Login Page';
 // retrieve plugin settings from options table
 $slp_options  = get_option('slp_settings');
+$custom_url = site_url() . '/wp-login.php?' . $slp_options['question'] . '=' . $slp_options['answer'];
+$custom_url_ending = "wp-login.php?" . $slp_options['question'] . '=' . $slp_options['answer'];
+$custom_logged_out = $custom_url . '?loggedout=true';
+$custom_lost_password = $custom_url . '&action=lostpassword';
 
 // Includes ------------------------------ //
 include('includes/settings-page.php'); // loads the admin settings page

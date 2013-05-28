@@ -4,11 +4,11 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 1.1.3
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess
+Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess -- the FIRST one that blocks remote bot login requests.
 
 == Description ==
 
@@ -17,6 +17,8 @@ Protect your /wp-admin and wp-login.php pages from being accessed by obscuring t
 = What it does =
 
 Without locking down access via IP address or file permissions, this plugin creates a secret, customizable, login URL string. Those attempting to gain access to your login form will be automatcally redirected to a customizable URL.
+
+This is the first plugin that blocks external bot login requests - login requests must come from your customized URL or the request is rejected.
 
 = Why it exists =
 
@@ -63,8 +65,18 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
-= 1.1.3=
-* Added some more IP address security - to be updated periodically.
+= 2.0.2 =
+* Bugfix - activating plugin error
+
+= 2.0.1 =
+* Fixed login redirect bug if logged out.
+* Updated Polish translation for v2.0.x
+
+= 2.0.0 =
+* Plugged security hole that allowed remote form submissions - CRITICAL UPDATE
+* Requires all fields be filled in on the settings page to avoid saving incomplete entries.
+
+= 1.1.3 =
 * Added Settings Link on the Plugins page to link to the settings.
 * Added useful links to the settings page.
 
@@ -84,8 +96,18 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Upgrade Notice ==
 
-= 1.1.3=
-* Added some more IP address security - to be updated periodically.
+= 2.0.2 =
+* Bugfix - activating plugin error
+
+= 2.0.1 =
+* Fixed login redirect bug if logged out.
+* Updated Polish translation for v2.0.x
+
+= 2.0.0 =
+* Plugged security hole that allowed remote form submissions - CRITICAL UPDATE
+* Requires all fields be filled in on the settings page to avoid saving incomplete entries.
+
+= 1.1.3 =
 * Added Settings Link on the Plugins page to link to the settings.
 * Added useful links to the settings page.
 
