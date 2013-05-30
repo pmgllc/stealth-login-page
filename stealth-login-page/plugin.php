@@ -16,6 +16,17 @@
 
   Thanks to David Decker for DE localization: http://deckerweb.de/kontakt/
 
+  Limit of liability: Installation and use of this plugin acknowledges the
+  understanding that this program alters the wp-config.php file and adds
+  settings to the WordPress database. The author is not responsible for any
+  damages or loss of data that might possibly be incurred through the
+  installation or use of the plugin.
+
+  Support: This is a free plugin, therefore support is limited to bugs that
+  affect all installations. Requests of any other nature will be at the
+  discretion of the plugin author to add or modify the code to account for
+  various installations, servers, or plugin conflicts.
+
   Licenced under the GNU GPL:
 
   This program is free software; you can redistribute it and/or modify
