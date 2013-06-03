@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.5.1
-Stable tag: 2.1.2
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,10 +28,6 @@ When using a login limiting plugin, it is possible that someone is on your netwo
 
 This does NOT replace the need for security "best practices" such as a strong password or a secure hosting environment. This is an additional layer of security, best combined with a login limiter such as <a href="http://wordpress.org/extend/plugins/limit-login-attempts/">Limit Login Attempts</a> or <a href="http://wordpress.org/extend/plugins/login-lockdown/">Login Lockdown</a>.
 
-= WP 3.6 Warning =
-
-It has come to my attention that the new WP 3.6 session timeout function opens up the login form but it doesn't have any idea about the new URL to avoid a redirect, so it will automatically redirect when this happens. I AM trying to fix this before 3.6 drops, but please be aware of this if you don't see v 1.2.1 and you've upgraded to WP 3.6 or 3.6-beta.
-
 == Installation ==
 
 1. Upload contents of the directory to /wp-content/plugins/ (or use the automatic installer)
@@ -39,11 +35,17 @@ It has come to my attention that the new WP 3.6 session timeout function opens u
 1. Configure the settings to create the secret URL string and redirect URL.
 1. Verify it works by going to your default login form URL.
 
+Add the following variables to wp-config.php if you are on a MU site and want to globally activate it with the same settings on all sites (change what is in quotes to your liking):
+
+$slp_redirect = "URL";
+$slp_question = "question";
+$slp_answer = "answer";
+
 == Frequently Asked Questions ==
 
 = Does this work on MU sites? =
 
-Absolutely.
+Version 3.0.0 and greater is fully network-activated, includes uninstall, and bypasses all the settings pages with wp-config.php variables. See the Intallation tab or above in this file for instructions.
 
 = I noticed Limit Login Attempts or Login Lockdown still reporting lockouts. Why? =
 
@@ -64,6 +66,11 @@ You'll need FTP access to your site. Renaming the stealth-login-page folder in /
 See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page/ "Stealth Login Page Plugin URI") here.
 
 == Changelog ==
+
+= 3.0.0 =
+* Added full MU support.
+* Disabled the login/logout/lost-password URL filtering - it knows if you're logged in.
+* Added wp-config.php settings support to bypass the settings page if you're locked out or in a MU environment.
 
 = 2.1.2 =
 * Efficiencies improved.
@@ -108,6 +115,11 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.0.0 =
+* Added full MU support.
+* Disabled the login/logout/lost-password URL filtering - it knows if you're logged in.
+* Added wp-config.php settings support to bypass the settings page if you're locked out or in a MU environment.
 
 = 2.1.2 =
 * Efficiencies improved.
