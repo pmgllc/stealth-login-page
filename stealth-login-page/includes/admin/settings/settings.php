@@ -1,10 +1,5 @@
 <?php
 
-add_action('admin_init', 'slp_register_settings'); // create settings in database
-function slp_register_settings() {
-	register_setting('slp_settings_group', 'slp_settings');
-}
-
 add_action( 'admin_init', 'slp_email_admin' );
 function slp_email_admin() {
 	global $slp_options, $custom_url;

@@ -1,10 +1,15 @@
 <?php
 
 /**
- * Documentation page
+ * Documentation
  *
- * @since 3.0.0
- */
+ * @package     SLP
+ * @subpackage  Documentation
+ * @copyright   Copyright (c) 2013, Jesse Petersen
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @since       4.0
+*/
+
 function slp_documentation() {
 
 	global $slp_options, $custom_url;

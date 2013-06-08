@@ -3,12 +3,12 @@ Contributors: peterdog
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7T2JDSM64HQV8
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
-Tested up to: 3.5.1
-Stable tag: 3.0.0
+Tested up to: 3.6
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess -- the FIRST one that blocks remote bot login requests.
+Protect your /wp-admin and wp-login.php pages from being accessed without editing .htaccess files. Optional wp-config.php variables for multi-site installs.
 
 == Description ==
 
@@ -35,7 +35,7 @@ This does NOT replace the need for security "best practices" such as a strong pa
 1. Configure the settings to create the secret URL string and redirect URL.
 1. Verify it works by going to your default login form URL.
 
-Add the following variables to wp-config.php if you are on a MU site and want to globally activate it with the same settings on all sites (change what is in quotes to your liking):
+Add the following variables to wp-config.php if you are on a MU site and want to globally activate it with the same settings on all sites (change what is in quotes to your liking - no spaces allowed):
 
 $slp_redirect = "URL";
 $slp_question = "question";
@@ -59,6 +59,8 @@ Yes, as long as you are not actively logged into the site on that computer. You 
 
 You'll need FTP access to your site. Renaming the stealth-login-page folder in /wp-content/plugins/ will remove the stealth security and allow you back into your dashboard.
 
+Alternatively, you can use wp-config.php variables to bypass the settings page and regain control to access your dashboard again and change the settings page - then delete the wp-config.php variables.
+
 == Screenshots ==
 
 1. The options page.
@@ -66,6 +68,9 @@ You'll need FTP access to your site. Renaming the stealth-login-page folder in /
 See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page/ "Stealth Login Page Plugin URI") here.
 
 == Changelog ==
+
+= 4.0.0 =
+* Complete re-write using extensible classes and hooks/actions.
 
 = 3.0.0 =
 * Added full MU support.
@@ -115,6 +120,9 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 * Initial release.
 
 == Upgrade Notice ==
+
+= 4.0.0 =
+* Complete re-write using extensible classes and hooks/actions.
 
 = 3.0.0 =
 * Added full MU support.

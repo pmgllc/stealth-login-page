@@ -1,4 +1,14 @@
 <?php
+/**
+ * Uninstall
+ *
+ * @package     SLP
+ * @subpackage  Uninstall
+ * @copyright   Copyright (c) 2013, Jesse Petersen
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @since       4.0
+*/
+
 if (!defined('WP_UNINSTALL_PLUGIN')) {
     header('Status: 403 Forbidden');
     header('HTTP/1.1 403 Forbidden');
