@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, wp-admin, redirect, security, 302
 Requires at least: 3.4.2
 Tested up to: 3.6
-Stable tag: 4.0.0
+Stable tag: 4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Changelog ==
 
-= 4.0.0 =
+= 4.0 =
 * Complete re-write using extensible classes and hooks/actions.
 
 = 3.0.0 =
@@ -121,7 +121,7 @@ See more [examples](http://www.petersenmediagroup.com/plugins/stealth-login-page
 
 == Upgrade Notice ==
 
-= 4.0.0 =
+= 4.0 =
 * Complete re-write using extensible classes and hooks/actions.
 
 = 3.0.0 =
